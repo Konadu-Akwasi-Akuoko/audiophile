@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --sans: "Manrope", sans-serif;
+}
+
+@theme inline {
+  --font-display: var(--sans);
+  --color-prime-100: #d87d4a;
+  --color-prime-200: #fbaf85;
+  --color-dark-100: #101010;
+  --color-dark-200: #000000;
+  --color-light-100: #f1f1f1;
+  --color-light-200: #fafafa;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 95;
+  background: var(--color-dark-100);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+body[data-menu="open"]::after {
+  opacity: 0.8;
+  backdrop-filter: grayscale(1);
+  -webkit-backdrop-filter: grayscale(1);
+  -moz-backdrop-filter: grayscale(1);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+a, button{
+  transition: all 0.3s;
+}
+/* Nav*/
+.active{
+  @apply text-prime-100;
+}
+/* Nav*/
+
+/*Heading*/
+.heading_main{
+  @apply font-bold text-[36px] uppercase leading-[58px] tracking-[2px]  md:text-[56px];
+}
+
+.heading_sub{
+  @apply block uppercase text-[14px] tracking-[10px] font-normal; 
+}
+.heading__2{
+  @apply text-[56px] tracking-[2px] leading-[3.8rem] uppercase; 
+}
+.heading__3{
+  @apply font-bold text-[28px] tracking-[2px] uppercase lg:text-[40px]; 
+}
+/*Heading*/
+
+/* ShowCaseProducts */
+.productCard::before{
+  content:"";
+  position:absolute;
+  inset: 25% 0 0 0;
+  background: #F1F1F1F1;
+  z-index: -1;
+  border-radius: 8px;
+}
+/* ShowCaseProducts */
+
+
+/* Footer  */
+.footerContainer::before{
+  @apply content-[""] absolute top-0 left-1/2 -translate-x-1/2 h-[4px] w-[101px] bg-prime-100 md:left-0 md:translate-x-0;
+}
+/* Footer  */
